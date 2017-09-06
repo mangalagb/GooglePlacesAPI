@@ -1,0 +1,24 @@
+@(userForm: Form[User])
+@import helper._
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Google Places API</title>
+    </head>
+    <body>
+		<title>Google Places</title>
+		<h1> Create a new account</h1>
+		    
+		     @helper.form(action = routes.Application.validateUser(), 'id -> "userForm") {
+		        @helper.inputText(userForm("email"))
+		        @helper.inputText(userForm("password"))
+		        @helper.inputText(userForm("city"))
+		        <input type="submit" class="btn primary" value="Send"/>
+		    }
+	</body>
+</html>
+
+
+
+
