@@ -1,0 +1,23 @@
+@(myuser: User)
+@import helper._
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Google Places API</title>
+    </head>
+    <body>
+		<title>Google Places</title>
+		<h1> Welcome @myuser.getEmail()</h1>
+		<p> To see a list of interesting places around your city, click the link below. </p>
+		<br><br>
+		
+		@helper.form(action = routes.Application.getPlaces(), 'id -> "placesForm") {
+		 <input type="submit" class="btn primary" value="See new interesting places"/>
+		}
+		<br><br><br>
+		@helper.form(action = routes.UsersController.logout(), 'id -> "logoutForm") {
+		 <input type="submit" class="btn primary" value="Logout"/>
+		}
+	</body>
+</html>

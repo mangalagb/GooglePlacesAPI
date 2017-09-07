@@ -1,0 +1,28 @@
+@(message: String)
+@import helper._
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Google Places API</title>
+    </head>
+    <body>
+		<title>Google Places</title>
+		<h1>@message</h1>
+			<h3> Click here to register</h3>		    
+		     @helper.form(action = routes.UsersController.createNewUser(), 'id -> "userForm") {
+		        <input type="submit" class="btn primary" value="Sign up"/>
+		    }
+		    <br><br>
+		    
+		    <h3> Click here to login</h3>		    
+		     @helper.form(action = routes.UsersController.login(), 'id -> "loginForm") {
+		        <input type="submit" class="btn primary" value="Login"/>
+		    }
+		    
+	</body>
+</html>
+
+
+
+

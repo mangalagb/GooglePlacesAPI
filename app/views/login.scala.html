@@ -1,0 +1,25 @@
+@(loginForm: Form[User], message: String)
+@import helper._
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Google Places API</title>
+    </head>
+    <body>
+		<title>Google Places</title>
+		<h1>@message</h1>
+		<h1> Login now to see cool places around you.</h1>
+		    
+		     @helper.form(action = routes.UsersController.validateUser()) {
+		        @helper.inputText(loginForm("email"))
+		        @helper.inputText(loginForm("password"))
+		        @helper.inputText(loginForm("city"))
+		        <input type="submit" class="btn primary" value="Login"/>
+		    }
+	</body>
+</html>
+
+
+
+
