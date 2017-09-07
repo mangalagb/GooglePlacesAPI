@@ -12,13 +12,17 @@ POST    /register                	controllers.UsersController.authenticate
 GET    	/login			            controllers.UsersController.login
 POST    /existinguser               controllers.UsersController.validateUser
 
+#Logout
 GET     /logout                     controllers.UsersController.logout
+
+#Reset password
+GET     /resetpassword              controllers.UsersController.resetPassword
+POST    /resetpasswordlogout        controllers.UsersController.processResetPassword
 
 
 
 #Places
 GET     /places                     controllers.PlacesController.getPlaces(city ?= null)
-#GET     /photos                     controllers.Application.getPhotos
 
 
 

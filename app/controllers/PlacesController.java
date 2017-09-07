@@ -34,8 +34,8 @@ public class PlacesController extends Controller {
 		String finalRequest = placeHolder.concat(city);
 		finalRequest = finalRequest.concat(key);
 		
-		String requestUrl = "https://maps.googleapis.com/maps/api/place/search/json?location=46.5882,-95.4075&radius=50000&types=lodging&sensor=false&key=AIzaSyCLi_YGm1Ld3R9pMzQZWN-v4KzdaCGZQCw";
-		return requestUrl;
+		String defaultUrl = "https://maps.googleapis.com/maps/api/place/search/json?location=46.5882,-95.4075&radius=50000&types=lodging&sensor=false&key=AIzaSyCLi_YGm1Ld3R9pMzQZWN-v4KzdaCGZQCw";
+		return defaultUrl;
 		//return finalRequest;
 	}
 	
@@ -69,5 +69,6 @@ public class PlacesController extends Controller {
 			  return new ArrayList<PlaceResult>();
 		  }		
 	}
+
 	
 }

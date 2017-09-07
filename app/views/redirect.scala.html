@@ -21,5 +21,10 @@
 		@helper.form(action = routes.UsersController.logout(), 'id -> "logoutForm") {
 		 <input type="submit" class="btn primary" value="Logout"/>
 		}
+		
+		<br><br><br>
+		@helper.form(action = routes.UsersController.resetPassword(), 'id -> "resetPasswordForm") {
+		 <input type="submit" class="btn primary" value="Reset password"/>
+		}
 	</body>
 </html>

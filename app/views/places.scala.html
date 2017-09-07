@@ -7,10 +7,12 @@
         <title>Google Places API</title>
     </head>
     <body>
-		<p>Cool restaurants in your city @city</p>
+		<p>Cool restaurants in @city</p>
+		
 		<ul>
 			@for(p <- myPlaces) {
-				<li>@p.getName()     Rating -  @p.getRating</li>
+				<li>@p.getName() (Rating -  @p.getRating)</li>
+				<br>
 			}
 		</ul>
 		

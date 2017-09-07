@@ -48,9 +48,36 @@ public class UsersController extends Controller {
 		if(passwordInSession != null && passwordInSession.equals(user.getPassword())) {
 			return ok(redirect.render(user));
 	    }else {
-	    	String mystr = passwordInSession + " " + user.getPassword();
-	        return ok(mystr);
+	    	String message = "Invalid password. Login again";
+			Form<User> newUserForm = formFactory.form(User.class);
+	        return badRequest(login.render(newUserForm, message));
 	    }		    
+	}
+	
+	public Result resetPassword() {
+		Form<User> userForm = formFactory.form(User.class);
+		String message = "This form is to reset your password";
+		return ok(resetpassword.render(userForm, message));
+	}
+	
+	public Result processResetPassword() {
+		Form<User> resetForm = formFactory.form(User.class).bindFromRequest();	
+		if(resetForm.hasErrors()) {			
+			String message = "Invalid values for the fields. Make sure the email has a @ tag. And the email and password cannot be the same.";
+			Form<User> newUserForm = formFactory.form(User.class);
+	        return badRequest(resetpassword.render(newUserForm, message));
+	    }else {
+	    	User newUser = resetForm.get();
+	    	String passwordInSession = session(newUser.getEmail());
+	    	if(passwordInSession != null) {
+	    		//Remove old password
+	    		session().remove(newUser.getEmail());
+	    		
+	    		//Add new password
+	    		session(newUser.getEmail(), newUser.getPassword());
+	    	}
+	    }
+		return ok(resetpasswordcomplete.render());
 	}
 	
 	public Result logout() {
