@@ -1,49 +1,57 @@
-This is your new Play application
-=================================
+Challenge 1:
 
-This file will be packaged with your application when using `activator dist`.
+To implement this challenge, I have used the Play Framework which is a 
+lightweight, stateless, web-friendly framework. The main reasons for choosing Play were:
+	- It is stateless -  There is no need to maintain complex session objects in between requests.
+	  Play uses a simple session cookie for passing information.
+	- It is Reactive - Play supports non-blocking I/O. It takes full advantage of Java 8 APIs for this. 
+	  Because Play is non-blocking, threads are not blocked when the network is slow, but are free to serve another HTTP request–and because Play is stateless, there is no session information tied to the thread that would confuse it. This is great for scalability and maintainability
+	- It is also easy to use as it supports hot-deploy.
 
-There are several demonstration files available in this template.
 
-Controllers
-===========
+Challenge 2:
+The basic Hello World functionality is implemented as the first request in the application. 
+It is a welcome screen asking the user to signup or login for existing users.
 
-- HomeController.java:
+Challenge 3:
+For the external API, I decided to use the Google Places API (Google Place Search). 
+Using this, a user enters the name of a city that he is interested in and gets 
+back a list of some of the top rated restaurants in that city. (Note: I only 
+display the restaurant name and its rating but all of its other information 
+is available in the application. To add them to the app, we only need to access their getters.)
 
-  Shows how to handle simple HTTP requests.
+Challenge 4:
+I have implemented the login and logout functionality. 
+When a user first signs up, his email and password is stored
+ in a session cookie. I have also implemented the reset password 
+ functionality. Here, we only need to change the value in the session cookie.
 
-- AsyncController.java:
+How to use the application
+This project uses
+- Java 8
+- Play 2.5.2
+Make sure you have support for these before running the app.
 
-  Shows how to do asynchronous programming when handling a request.
+There are 2 ways to run the app.
 
-- CountController.java:
+First Way
+1) Go to the directory where the app is stored
+1) Run "activator clean compile"
+2) Run "activator run"
+3) Go to localhost:9000
 
-  Shows how to inject a component into a controller and use the component when
-  handling requests.
+Second Method
+To run it as a standalone application,
+1) There is a zip file called googleapi-1.0-SNAPSHOT.zip with the commit.
+  It contains all JAR files needed to run the application.
+	
+2) Unzip the archive. If you are running it on Linux, the file does
+	 not retain Unix file permissions so when the file is expanded 
+	 the start script will be required to be set as an executable. Just type
+	 chmod +x /path/to/bin/<project-name>
+ 	ie, chmod +x /path/to/bin/googleapi
 
-Components
-==========
-
-- Module.java:
-
-  Shows how to use Guice to bind all the components needed by your application.
-
-- Counter.java:
-
-  An example of a component that contains state, in this case a simple counter.
-
-- ApplicationTimer.java:
-
-  An example of a component that starts when the application starts and stops
-  when the application stops.
-
-Filters
-=======
-
-- Filters.java:
-
-  Creates the list of HTTP filters used by your application.
-
-- ExampleFilter.java
-
-  A simple filter that adds a header to every response.
+	 
+3) Execute it as:
+	 cd path/to/bin/
+	 ./googleapi -Dplay.http.secret.key=abcdefghijk

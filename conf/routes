@@ -19,8 +19,6 @@ GET     /logout                     controllers.UsersController.logout
 GET     /resetpassword              controllers.UsersController.resetPassword
 POST    /resetpasswordlogout        controllers.UsersController.processResetPassword
 
-
-
 #Places
 GET     /places                     controllers.PlacesController.getPlaces(city ?= null)
 
