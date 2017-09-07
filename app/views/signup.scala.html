@@ -1,4 +1,4 @@
-@(userForm: Form[User])
+@(userForm: Form[User], message: String)
 @import helper._
 
 <!DOCTYPE html>
@@ -8,14 +8,13 @@
     </head>
     <body>
 		<title>Google Places</title>
-		<h1> Create a new account</h1>
-		    
-		     @helper.form(action = routes.Application.validateUser(), 'id -> "userForm") {
+		<h1>@message</h1>
+			<p> Enter your username and password</p>		    
+		     @helper.form(action = routes.UsersController.authenticate(), 'id -> "userForm") {
 		        @helper.inputText(userForm("email"))
 		        @helper.inputText(userForm("password"))
-		        @helper.inputText(userForm("city"))
-		        <input type="submit" class="btn primary" value="Send"/>
-		    }
+		        <input type="submit" class="btn primary" value="Sign up"/>
+		    }		    
 	</body>
 </html>
 

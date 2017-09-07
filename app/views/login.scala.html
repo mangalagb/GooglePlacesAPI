@@ -9,12 +9,11 @@
     <body>
 		<title>Google Places</title>
 		<h1>@message</h1>
-		<h1> Login now to see cool places around you.</h1>
+		<h1> Login now to see cool restaurants in your city.</h1>
 		    
 		     @helper.form(action = routes.UsersController.validateUser()) {
 		        @helper.inputText(loginForm("email"))
 		        @helper.inputText(loginForm("password"))
-		        @helper.inputText(loginForm("city"))
 		        <input type="submit" class="btn primary" value="Login"/>
 		    }
 	</body>

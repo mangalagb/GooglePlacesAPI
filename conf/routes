@@ -3,11 +3,22 @@
 # ~~~~
 
 # Home page
-GET     /                           controllers.Application.signup
+GET     /                           controllers.Application.index
 
 #Users
-POST    /users                  controllers.Application.validateUser
+GET    /newUser                  	controllers.UsersController.createNewUser
+POST    /register                	controllers.UsersController.authenticate
+
+GET    	/login			            controllers.UsersController.login
+POST    /existinguser               controllers.UsersController.validateUser
+
+GET     /logout                     controllers.UsersController.logout
+
+
 
 #Places
-GET     /places                           controllers.Application.index2
+GET     /places                     controllers.PlacesController.getPlaces(city ?= null)
+#GET     /photos                     controllers.Application.getPhotos
+
+
 

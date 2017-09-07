@@ -1,8 +1,5 @@
-@*
- * This template takes a single argument, a String containing a
- * message to display.
- *@
-@(email: String)
+@(city: String, myPlaces: List[PlaceResult])
+@import helper._
 
 <!DOCTYPE html>
 <html lang="en">
@@ -10,8 +7,25 @@
         <title>Google Places API</title>
     </head>
     <body>
-		Welcome @email ! <br><br>
-		<p>Here are a list of places around your city</p>
+		<p>Cool restaurants in your city @city</p>
+		<ul>
+			@for(p <- myPlaces) {
+				<li>@p.getName()     Rating -  @p.getRating</li>
+			}
+		</ul>
+		
+		<br><br><br>
+		<p>See restaurants in another city</p>
+		@helper.form(action = routes.PlacesController.getPlaces(), 'id -> "placesForm") {
+		<input type="text" name="city" id="city" value="" label="City Name">
+		 <input type="submit" class="btn primary" value="See new interesting places"/>
+		}
+		
+		<br><br><br>
+		@helper.form(action = routes.UsersController.logout(), 'id -> "placesForm") {
+		 <input type="submit" class="btn primary" value="Logout"/>
+		}		
+		
     </body>
 </html>
 

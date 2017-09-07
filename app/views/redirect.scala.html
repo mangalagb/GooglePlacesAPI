@@ -9,10 +9,12 @@
     <body>
 		<title>Google Places</title>
 		<h1> Welcome @myuser.getEmail()</h1>
-		<p> To see a list of interesting places around your city, click the link below. </p>
+		<p> To see a list of interesting restaurants around your city, click the link below. </p>
 		<br><br>
 		
-		@helper.form(action = routes.Application.getPlaces(), 'id -> "placesForm") {
+		<p>Enter a city name to see restaurants there</p>
+		@helper.form(action = routes.PlacesController.getPlaces(), 'id -> "placesForm") {
+		<input type="text" name="city" id="city" value="" label="City Name">
 		 <input type="submit" class="btn primary" value="See new interesting places"/>
 		}
 		<br><br><br>

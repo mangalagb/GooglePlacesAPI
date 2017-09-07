@@ -1,9 +1,0 @@
-New log file opened at Wed Sep 06 00:22:56 EDT 2017 by 8773@Voyager.local
-Sending msg to client play-fork-run-4a839763-9344-4c00-9b32-8a925ea91b3a: DetachedLogEvent(LogMessage(debug,sbt server socket logs are in: /Users/gowri/Documents/workspace/GoogleAPI/.sbtserver/connections/master.log))
-Sending msg to client play-fork-run-4a839763-9344-4c00-9b32-8a925ea91b3a: DetachedLogEvent(LogMessage(debug,sbt client logs are in: /Users/gowri/Documents/workspace/GoogleAPI/.sbtserver/connections/play-fork-run-4a839763-9344-4c00-9b32-8a925ea91b3a.log))
-Sending msg to client play-fork-run-4a839763-9344-4c00-9b32-8a925ea91b3a: DetachedLogEvent(LogMessage(debug,sbt general server logs are in: /Users/gowri/Documents/workspace/GoogleAPI/.sbtserver/master.log))
-Reading next message from client.
-Client play-fork-run-4a839763-9344-4c00-9b32-8a925ea91b3a EOF, shutting down.
-Stopping client.
-Client play-fork-run-4a839763-9344-4c00-9b32-8a925ea91b3a thread exiting.
-Dropping message (0,ReceivedResponse()) to dead client play-fork-run-4a839763-9344-4c00-9b32-8a925ea91b3a

@@ -12,7 +12,6 @@ public class UsersController extends Controller {
 	
 	@Inject
 	FormFactory formFactory;
-	FormFactory formFactory1;
 	
 	public Result createNewUser() {
 		Form<User> userForm = formFactory.form(User.class);
